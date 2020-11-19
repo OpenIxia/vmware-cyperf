@@ -6,14 +6,17 @@
     - variables.yml
  
   tasks:
-    - name: Configuring Node (updating portmanager-config.json)
+    - name: Removing node_id.txt
       become: yes
-      template:
-        src: portmanager-config_template.json
-        dest: /etc/portmanager/portmanager-config.json
+      file:
+        path: /etc/portmanager/node_id.txt
+        state: absent
 
-    - name: Restarting portmanager service
+    - name: Configuring Node (updating Controller IP, test and Management interface)
       become: yes
-      service:
-        name: portmanager
-        state: restarted
+      shell: |
+        sudo cyperfagent controller set {{ VarNatsBrokerUrl }}
+        sudo cyperfagent interface test set ${{ VarTestInterface }}
+        sudo cyperfagent interface management set {{ VarManagementInterface }}
+      args:
+        executable: /bin/bash

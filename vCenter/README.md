@@ -53,7 +53,7 @@ k.	"vsphere_vm_cpu_count": 2,
 l.	"vsphere_vm_memory_mb": 4096,
 m.	"vm_count": <number of VM want to deploy>,
 n.	"vm_prefix" : "<Prefix name for deployed VM>",
-o.	“VarNatsBrokerUrl”: "nats://<CyPerf Controller IP>:30422"
+o.	“VarNatsBrokerUrl”: "<CyPerf Controller IP>"
 p.	“VarManagementInterface”: "<Management interface>"
 q.	“VarTestInterface”: "<Test interface>"
 r.	“VarAppsecInstaller”: "<CyPerf binary>" # this is needed only for H/W installation [Not required if ova is used]
@@ -85,15 +85,15 @@ r.	“VarAppsecInstaller”: "<CyPerf binary>" # this is needed only for H/W ins
 
          a. Associate VMs with a CyPerf Controller-
 
-            #ansible-playbook playbook_configure_appsec_ova_vm.yml -i ./hosts -u appsec --extra-vars 'ansible_ssh_pass=appsec' --extra-vars 'ansible_become_pass=appsec'
+            #ansible-playbook playbook_configure_appsec_ova_vm.yml -i ./hosts -u cyperf --extra-vars 'ansible_ssh_pass=cyperf' --extra-vars 'ansible_become_pass=cyperf'
 
          b. Restart port manager service-
 
-            #ansible-playbook playbook_restart_portmanager.yml -i ./hosts -u appsec --extra-vars 'ansible_ssh_pass=appsec' --extra-vars 'ansible_become_pass=appsec'
+            #ansible-playbook playbook_restart_portmanager.yml -i ./hosts -u cyperf --extra-vars 'ansible_ssh_pass=cyperf' --extra-vars 'ansible_become_pass=cyperf'
 
          c. Reboot CyPerf agents -
 
-            #ansible-playbook playbook_reboot_node.yml -i ./hosts -u appsec --extra-vars 'ansible_ssh_pass=appsec' --extra-vars 'ansible_become_pass=appsec'
+            #ansible-playbook playbook_reboot_node.yml -i ./hosts -u cyperf --extra-vars 'ansible_ssh_pass=cyperf' --extra-vars 'ansible_become_pass=cyperf'
 
 8.  	Use cases
 

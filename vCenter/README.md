@@ -25,8 +25,8 @@ Login to your Ubuntu 18.04 controller system.
 
 1.	Download scripts
 
-	Download CyPerf_Deployment_and_Configuration_In_vCenter.tar.gz
-	untar CyPerf_Deployment_and_Configuration_In_vCenter.tar.gz file in the Ubuntu 18.04 controller system
+	Download scripts from public github repo
+        https://github.com/OpenIxia/vmware-cyperf/tree/Preview/vCenter
 
 2.	Install Prerequisite 
 
